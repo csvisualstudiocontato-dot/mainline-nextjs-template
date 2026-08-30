@@ -1,4 +1,3 @@
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import type { Metadata } from "next";
@@ -56,36 +55,24 @@ const dmSans = localFont({
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+
 
 export const metadata: Metadata = {
   title: {
-    default: "Mainline - Modern Next.js Template",
-    template: "%s | Mainline",
+    default: "Oeste Engenharia · Cascavel, Paraná",
+    template: "%s | Oeste Engenharia",
   },
   description:
-    "A modern Next.js template built with shadcn/ui, Tailwind & MDX. Open source - MIT License.",
+    "Engenharia civil, projetos, obras e laudos em Cascavel e no oeste do Paraná.",
   keywords: [
-    "Next.js",
-    "nextjs template",
-    "nextjs theme",
-    "nextjs starter",
-    "shadcn template",
-    "shadcn theme",
-    "shadcn starter",
-    "tailwind template",
-    "tailwind theme",
-    "tailwind starter",
-    "mdx template",
-    "mdx theme",
-    "mdx starter",
+    "engenharia Cascavel",
+    "construção Paraná",
+    "CREA-PR",
+    "projetos industriais",
   ],
-  authors: [{ name: "shadcnblocks.com" }],
-  creator: "shadcnblocks.com",
-  publisher: "shadcnblocks.com",
+  authors: [{ name: "Oeste Engenharia" }],
+  creator: "Oeste Engenharia",
+  publisher: "Oeste Engenharia",
   robots: {
     index: true,
     follow: true,
@@ -102,10 +89,10 @@ export const metadata: Metadata = {
     shortcut: [{ url: "/favicon/favicon.ico" }],
   },
   openGraph: {
-    title: "Mainline - Modern Next.js Template",
+    title: "Oeste Engenharia · Cascavel, Paraná",
     description:
-      "A modern Next.js template built with shadcn/ui, Tailwind & MDX. Open source - MIT License.",
-    siteName: "Mainline",
+      "Engenharia civil, projetos, obras e laudos em Cascavel e no oeste do Paraná.",
+    siteName: "Oeste Engenharia",
     images: [
       {
         url: "/og-image.jpg",
@@ -131,22 +118,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          async
-          crossOrigin="anonymous"
-          src="https://tweakcn.com/live-preview.min.js"
-        />
-      </head>
-      <body className={`${dmSans.variable} ${inter.variable} antialiased`}>
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body className={`${dmSans.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
-          <StyleGlideProvider />
           <Navbar />
           <main className="">{children}</main>
           <Footer />

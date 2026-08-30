@@ -1,68 +1,62 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
 
 import { Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 
 const plans = [
   {
-    name: "Free",
-    monthlyPrice: "$0",
-    yearlyPrice: "$0",
-    description: "Free for everyone",
+    name: "Consultoria",
+    price: "Sob consulta",
+    description: "Diagnóstico técnico e laudos",
     features: [
-      "Unlimited members",
-      "2 teams",
-      "500 issues",
-      "Slack and Github integrations",
+      "Vistoria em Cascavel e região",
+      "Laudo com ART",
+      "Relatório fotográfico",
+      "Reunião de alinhamento",
     ],
   },
   {
-    name: "Startup",
-    monthlyPrice: "$8",
-    yearlyPrice: "$6",
+    name: "Projeto",
+    price: "Pacotes a partir de R$ 8.900",
+    description: "Projeto executivo completo",
     features: [
-      "All free plan features and...",
-      "Mainline AI",
-      "Unlimited teams",
-      "Unlimited issues and file uploads",
-      "Mainline Insights",
-      "Admin roles",
+      "Arquitetura e estrutural",
+      "Instalações prediais",
+      "Memorial descritivo",
+      "Aprovação junto aos órgãos",
+      "Revisões incluídas",
     ],
   },
   {
-    name: "Enterprise",
-    monthlyPrice: "$8",
-    yearlyPrice: "$6",
+    name: "Obra",
+    price: "Gestão dedicada",
+    description: "Fiscalização e execução",
     features: [
-      "All free plan features and...",
-      "Mainline AI",
-      "Supermainline AGI",
-      "Free daily catered lunch",
-      "random HIPPA audits",
+      "Gerente de obra exclusivo",
+      "Cronograma e medições",
+      "Controle de qualidade",
+      "Relatórios semanais",
+      "Entrega com as built",
     ],
   },
 ];
 
 export const Pricing = ({ className }: { className?: string }) => {
-  const [isAnnual, setIsAnnual] = useState(true);
-
   return (
     <section className={cn("py-28 lg:py-32", className)}>
       <div className="container max-w-5xl">
         <div className="space-y-4 text-center">
           <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-            Pricing
+            Serviços
           </h2>
           <p className="text-muted-foreground mx-auto max-w-xl leading-snug text-balance">
-            Use Mainline for free with your whole team. Upgrade to enable
-            unlimited issues, enhanced security controls, and additional
-            features.
+            Orçamentos transparentes, prazos realistas e equipe residente em
+            Cascavel.
           </p>
         </div>
 
@@ -70,42 +64,18 @@ export const Pricing = ({ className }: { className?: string }) => {
           {plans.map((plan) => (
             <Card
               key={plan.name}
-              className={`${
-                plan.name === "Startup"
-                  ? "outline-primary origin-top outline-4"
-                  : ""
-              }`}
+              className={plan.name === "Projeto" ? "outline-primary origin-top outline-4" : ""}
             >
               <CardContent className="flex flex-col gap-7 px-6 py-5">
                 <div className="space-y-2">
                   <h3 className="text-foreground font-semibold">{plan.name}</h3>
-                  <div className="space-y-1">
-                    <div className="text-muted-foreground text-lg font-medium">
-                      {isAnnual ? plan.yearlyPrice : plan.monthlyPrice}{" "}
-                      {plan.name !== "Free" && (
-                        <span className="text-muted-foreground">
-                          per user/
-                          {isAnnual ? "year" : "month"}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                {plan.name !== "Free" ? (
-                  <div className="flex items-center gap-2">
-                    <Switch
-                      checked={isAnnual}
-                      onCheckedChange={() => setIsAnnual(!isAnnual)}
-                      aria-label="Toggle annual billing"
-                    />
-                    <span className="text-sm font-medium">Billed annually</span>
-                  </div>
-                ) : (
-                  <span className="text-muted-foreground text-sm">
+                  <p className="text-muted-foreground text-lg font-medium">
+                    {plan.price}
+                  </p>
+                  <p className="text-muted-foreground text-sm">
                     {plan.description}
-                  </span>
-                )}
+                  </p>
+                </div>
 
                 <div className="space-y-3">
                   {plan.features.map((feature) => (
@@ -121,9 +91,10 @@ export const Pricing = ({ className }: { className?: string }) => {
 
                 <Button
                   className="w-fit"
-                  variant={plan.name === "Startup" ? "default" : "outline"}
+                  variant={plan.name === "Projeto" ? "default" : "outline"}
+                  asChild
                 >
-                  Get started
+                  <Link href="/contact">Falar com a equipe</Link>
                 </Button>
               </CardContent>
             </Card>

@@ -10,52 +10,42 @@ import { cn } from "@/lib/utils";
 
 const categories = [
   {
-    title: "Support",
+    title: "Atendimento",
     questions: [
       {
-        question: "How do I update my account without breaking my laptop?",
+        question: "Vocês atendem só Cascavel?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Nossa sede é na Av. Brasil, em Cascavel. Atendemos todo o oeste do Paraná, incluindo Toledo, Medianeira, Foz do Iguaçu e municípios rurais.",
       },
       {
-        question: "Is support free, or do I need to Google everything?",
+        question: "Como agendar uma visita?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
-      },
-      {
-        question: "Are you going to be subsumed by AI?",
-        answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Pelo formulário, WhatsApp (45) 3220-1840 ou diretamente na recepção, de segunda a sexta das 8h às 18h e sábados até 12h.",
       },
     ],
   },
   {
-    title: "Your account",
+    title: "Projetos",
     questions: [
       {
-        question: "Is support free, or do I need to Google everything?",
+        question: "Emitem ART?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Sim. Todos os projetos e laudos saem com Anotação de Responsabilidade Técnica no CREA-PR.",
       },
       {
-        question: "Are you going to be subsumed by AI?",
+        question: "Qual o prazo médio de um projeto residencial?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Projetos residenciais levam de 30 a 60 dias, conforme complexidade e documentação do terreno.",
       },
     ],
   },
   {
-    title: "Other questions",
+    title: "Obras",
     questions: [
       {
-        question: "Is support free, or do I need to Google everything?",
+        question: "Fazem gestão de obra de terceiros?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
-      },
-      {
-        question: "Are you going to be subsumed by AI?",
-        answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Sim. Fiscalizamos construtoras contratadas pelo cliente, com medições, qualidade e relatórios semanais.",
       },
     ],
   },
@@ -77,17 +67,17 @@ export const FAQ = ({
           <div className="space-y-4">
             {headerTag === "h1" ? (
               <h1 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-                Got Questions?
+                Perguntas frequentes
               </h1>
             ) : (
               <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-                Got Questions?
+                Perguntas frequentes
               </h2>
             )}
             <p className="text-muted-foreground max-w-md leading-snug lg:mx-auto">
-              If you can't find what you're looking for,{" "}
+              Não encontrou o que precisa?{" "}
               <Link href="/contact" className="underline underline-offset-4">
-                get in touch
+                Fale conosco
               </Link>
               .
             </p>
@@ -95,7 +85,7 @@ export const FAQ = ({
 
           <div className="grid gap-6 text-start">
             {categories.map((category, categoryIndex) => (
-              <div key={category.title} className="">
+              <div key={category.title}>
                 <h3 className="text-muted-foreground border-b py-4">
                   {category.title}
                 </h3>
