@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { ChevronRight, Github } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -22,26 +22,25 @@ import { cn } from "@/lib/utils";
 
 const ITEMS = [
   {
-    label: "Features",
-    href: "#features",
+    label: "Serviços",
+    href: "#servicos",
     dropdownItems: [
       {
-        title: "Modern product teams",
-        href: "/#feature-modern-teams",
-        description:
-          "Mainline is built on the habits that make the best product teams successful",
+        title: "Projetos de engenharia",
+        href: "/#servicos",
+        description: "Civil, estrutural, industrial e rural com ART.",
       },
       {
-        title: "Resource Allocation",
-        href: "/#resource-allocation",
-        description: "Mainline your resource allocation and execution",
+        title: "Obras e fiscalização",
+        href: "/#servicos",
+        description: "Gestão de obra do planejamento à entrega.",
       },
     ],
   },
-  { label: "About Us", href: "/about" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Sobre", href: "/about" },
+  { label: "Serviços e valores", href: "/pricing" },
   { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contato", href: "/contact" },
 ];
 
 export const Navbar = () => {
@@ -52,7 +51,7 @@ export const Navbar = () => {
   return (
     <section
       className={cn(
-        "bg-background/70 absolute left-1/2 z-50 w-[min(90%,700px)] -translate-x-1/2 rounded-4xl border backdrop-blur-md transition-all duration-300",
+        "bg-background/70 absolute left-1/2 z-50 w-[min(94%,820px)] -translate-x-1/2 rounded-4xl border backdrop-blur-md transition-all duration-300",
         "top-5 lg:top-12",
       )}
     >
@@ -60,19 +59,18 @@ export const Navbar = () => {
         <Link href="/" className="flex shrink-0 items-center gap-2">
           <Image
             src="/logo.svg"
-            alt="logo"
-            width={94}
-            height={18}
-            className="dark:invert"
+            alt="Oeste Engenharia"
+            width={180}
+            height={28}
+            className="h-7 w-auto"
           />
         </Link>
 
-        {/* Desktop Navigation */}
         <NavigationMenu className="max-lg:hidden">
           <NavigationMenuList>
             {ITEMS.map((link) =>
               link.dropdownItems ? (
-                <NavigationMenuItem key={link.label} className="">
+                <NavigationMenuItem key={link.label}>
                   <NavigationMenuTrigger className="data-[state=open]:bg-accent/50 bg-transparent! px-1.5">
                     {link.label}
                   </NavigationMenuTrigger>
@@ -101,7 +99,7 @@ export const Navbar = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               ) : (
-                <NavigationMenuItem key={link.label} className="">
+                <NavigationMenuItem key={link.label}>
                   <Link
                     href={link.href}
                     className={cn(
@@ -117,28 +115,19 @@ export const Navbar = () => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Auth Buttons */}
         <div className="flex items-center gap-2.5">
           <ThemeToggle />
-          <Link href="/login" className="max-lg:hidden">
-            <Button variant="outline">
-              <span className="relative z-10">Login</span>
+          <Link href="/contact" className="max-lg:hidden">
+            <Button>
+              <span className="relative z-10">Orçamento</span>
             </Button>
           </Link>
-          <a
-            href="https://github.com/shadcnblocks/mainline-nextjs-template"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Github className="size-4" />
-            <span className="sr-only">GitHub</span>
-          </a>
 
-          {/* Hamburger Menu Button (Mobile Only) */}
           <button
             className="text-muted-foreground relative flex size-8 lg:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <span className="sr-only">Open main menu</span>
+            <span className="sr-only">Abrir menu</span>
             <div className="absolute top-1/2 left-1/2 block w-[18px] -translate-x-1/2 -translate-y-1/2">
               <span
                 aria-hidden="true"
@@ -157,7 +146,6 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/*  Mobile Menu Navigation */}
       <div
         className={cn(
           "bg-background fixed inset-x-0 top-[calc(100%+1rem)] flex flex-col rounded-2xl border p-6 transition-all duration-300 ease-in-out lg:hidden",
@@ -209,7 +197,6 @@ export const Navbar = () => {
                           <div className="text-primary font-medium">
                             {item.title}
                           </div>
-
                           <p className="text-muted-foreground mt-1 text-sm">
                             {item.description}
                           </p>

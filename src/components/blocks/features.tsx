@@ -9,64 +9,57 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const items = [
   {
-    title: "Purpose-built for product development",
-    image: "/features/triage-card.svg",
+    title: "Projetos executivos completos",
+    image: "/about/office.jpg",
   },
   {
-    title: "Manage projects end-to-end",
-    image: "/features/cycle-card.svg",
+    title: "Gestão de obras de ponta a ponta",
+    image: "/about/construction.jpg",
   },
   {
-    title: "Build momentum and healthy habits",
-    image: "/features/overview-card.svg",
+    title: "Soluções para o agronegócio",
+    image: "/about/soy.jpg",
   },
 ];
 
 export const Features = () => {
   return (
-    <section id="feature-modern-teams" className="pb-28 lg:pb-32">
+    <section id="servicos" className="pb-28 lg:pb-32">
       <div className="container">
-        {/* Top dashed line with text */}
         <div className="relative flex items-center justify-center">
           <DashedLine className="text-muted-foreground" />
           <span className="bg-muted text-muted-foreground absolute px-3 font-mono text-sm font-medium tracking-wide max-md:hidden">
-            MEASURE TWICE. CUT ONCE.
+            CREA-PR · ISO 9001 · NBR
           </span>
         </div>
 
-        {/* Content */}
         <div className="mx-auto mt-10 grid max-w-4xl items-center gap-3 md:gap-0 lg:mt-24 lg:grid-cols-2">
           <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-            Made for modern product teams
+            Feita para quem constrói o Oeste
           </h2>
           <p className="text-muted-foreground leading-snug">
-            Mainline is built on the habits that make the best product teams
-            successful: staying focused, moving quickly, and always aiming for
-            high-quality work.
+            Da planta à entrega, unimos engenharia de precisão com o ritmo do
+            agronegócio e da indústria de Cascavel.
           </p>
         </div>
 
-        {/* Features Card */}
         <Card className="mt-8 rounded-3xl md:mt-12 lg:mt-20">
           <CardContent className="flex p-0 max-md:flex-col">
             {items.map((item, i) => (
               <div key={i} className="flex flex-1 max-md:flex-col">
                 <div className="flex-1 p-4 pe-0! md:p-6">
-                  <div className="relative aspect-[1.28/1] overflow-hidden">
+                  <div className="relative aspect-[1.28/1] overflow-hidden rounded-xl">
                     <Image
                       src={item.image}
-                      alt={`${item.title} interface`}
+                      alt={item.title}
                       fill
-                      className="object-cover object-left-top ps-4 pt-2"
+                      className="object-cover"
                     />
-                    <div className="from-background absolute inset-0 z-10 bg-linear-to-t via-transparent to-transparent" />
                   </div>
 
                   <Link
-                    href="#"
-                    className={
-                      "group flex items-center justify-between gap-4 pe-4 pt-4 md:pe-6 md:pt-6"
-                    }
+                    href="/pricing"
+                    className="group flex items-center justify-between gap-4 pe-4 pt-4 md:pe-6 md:pt-6"
                   >
                     <h3 className="font-display max-w-60 text-2xl leading-tight font-bold tracking-tight">
                       {item.title}

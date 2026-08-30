@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  allowedDevOrigins: [
+    "*.e2b.app",
+    "3000-il49x63htzs9v2mznor5d.e2b.app",
+  ],
 };
 const withMDX = createMDX({
   options: {
